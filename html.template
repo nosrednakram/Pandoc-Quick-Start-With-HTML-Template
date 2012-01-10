@@ -1,0 +1,106 @@
+$if(html5)$
+<!DOCTYPE html>
+<html$if(lang)$ lang="$lang$"$endif$>
+$else$
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$>
+$endif$
+<head>
+$if(html5)$
+  <meta charset="utf-8" />
+$else$
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+$endif$
+  <meta name="generator" content="pandoc" />
+$for(author)$
+  <meta name="author" content="$author$" />
+$endfor$
+$if(date)$
+  <meta name="date" content="$date$" />
+$endif$
+  <title>$if(title-prefix)$$title-prefix$ - $endif$$if(pagetitle)$$pagetitle$$endif$</title>
+$if(html5)$
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+$endif$
+$if(highlighting-css)$
+  <style type="text/css">
+$highlighting-css$
+  </style>
+$endif$
+$for(css)$
+  <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
+$endfor$
+$if(math)$
+$if(html5)$
+$else$
+  $math$
+$endif$
+$endif$
+$for(header-includes)$
+  $header-includes$
+$endfor$
+<link rel="stylesheet" href="css/master.css" />
+<STYLE type="text/css">
+   .toc li {list-style-type: none }
+   dd {padding: 8px 16px}
+ </STYLE>
+<noscript>
+<link rel="stylesheet" href="css/mobile.min.css" />
+</noscript>
+<script>
+// Edit to suit your needs.
+var ADAPT_CONFIG = {
+  // Where is your CSS?
+  path: 'css/',
+
+  // false = Only run once, when page first loads.
+  // true = Change on window resize and page tilt.
+  dynamic: true,
+
+  // First range entry is the minimum.
+  // Last range entry is the maximum.
+  // Separate ranges by "to" keyword.
+  range: [
+    '0px    to 760px  = mobile.min.css',
+    '760px  to 980px  = 720.min.css',
+    '980px  to 1280px = 960.min.css',
+    '1280px to 1600px = 1200.min.css',
+    '1600px to 1940px = 1560.min.css',
+    '1940px to 2540px = 1920.min.css',
+    '2540px           = 2520.min.css'
+  ]
+};
+</script>
+<script src="js/adapt.min.js"></script>
+</head>
+<body>
+<div class="container_12">
+<div class="grid_3 toc">
+<h3>Table of Contents</h3>
+$if(toc)$
+$toc$
+$endif$
+</div> <!-- Grid 3 -->
+<div class="grid_9">
+$for(include-before)$
+$include-before$
+$endfor$
+$if(title)$
+$if(html5)$
+<header>
+$endif$
+<h1 class="title">$title$</h1>
+$if(html5)$
+</header>
+$endif$
+$endif$
+$body$
+$for(include-after)$
+$include-after$
+$endfor$
+</div> <!-- grid 9 -->
+</div> <!-- Containter 12 -->
+</body>
+</html>
